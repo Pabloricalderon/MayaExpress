@@ -7,6 +7,7 @@ public class Obstacle : MonoBehaviour
         BusHealth health = other.GetComponentInParent<BusHealth>();
         if (health != null)
         {
+            
             health.TakeDamage();
             Destroy(gameObject); // Si quieres que desaparezca tras chocar
         }

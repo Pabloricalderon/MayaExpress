@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class BusHealth : MonoBehaviour
 {
@@ -7,14 +8,22 @@ public class BusHealth : MonoBehaviour
     private int currentLives;
     private float distanceTraveled = 0f;
     private Vector3 startPosition;
+    public TextMeshProUGUI gameOverText;
+    
+    public TextMeshProUGUI livesText;
 
     public GameObject gameOverUI;
 
     void Start()
     {
+        gameOverUI.GetComponent<GameOverUI>();
         currentLives = maxLives;
         startPosition = transform.position;
         Time.timeScale = 1f; // Asegura que el juego esté corriendo
+        gameOverText.gameObject.SetActive(false);
+        livesText.gameObject.SetActive(true);
+        livesText.text = "Vidas: " + currentLives;
+
     }
 
     void Update()
@@ -24,13 +33,18 @@ public class BusHealth : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentLives--;
-        Debug.Log("¡Colisión! Vidas restantes: " + currentLives);
-
-        if (currentLives <= 0)
+        if (currentLives > 0)
         {
-            GameOver();
+            currentLives--;
+
+
+            livesText.text = "Vidas: " + currentLives;
+            if (currentLives <= 0)
+            {
+                GameOver();
+            }
         }
+       
     }
 
     void GameOver()
@@ -38,13 +52,13 @@ public class BusHealth : MonoBehaviour
         Time.timeScale = 0f; // Detiene el juego
         if (gameOverUI != null)
         {
+
             gameOverUI.SetActive(true);
-            gameOverUI.GetComponent<GameOverUI>().ShowStats((int)distanceTraveled);
+            gameOverText.text = "Juego Terminado. Distancia: " + (int)distanceTraveled + "m";
+            gameOverText.gameObject.SetActive(true);
+            
         }
-        else
-        {
-            Debug.Log("Game Over. Distancia: " + (int)distanceTraveled + " m");
-        }
+       
     }
 }
 

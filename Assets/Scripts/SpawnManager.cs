@@ -7,7 +7,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float spawnDistanceAhead = 50f;
     public float laneOffset = 4.5f;
     public Transform player;
-    public float spawnInterval = 50f;  // Menos frecuente
+    public float spawnInterval = 70f;  // Menos frecuente
     private float lastSpawnZ;
 
     void Start()
