@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3617675757121900912}
   - component: {fileID: 186321678054282107}
   - component: {fileID: 3189691139134573401}
+  - component: {fileID: -3253481552886828128}
+  - component: {fileID: 6492557662218343029}
   m_Layer: 0
   m_Name: Prop_Cone_01
   m_TagString: Obstacle
@@ -137,3 +139,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &-3253481552886828128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572699153395149580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f6c320e9c5b284c833b1013950bfe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &6492557662218343029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572699153395149580}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1703908, y: 1.7452259, z: 1.1703949}
+  m_Center: {x: 0, y: 0.87261295, z: 0}

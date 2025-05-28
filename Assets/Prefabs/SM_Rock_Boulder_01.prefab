@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6866770936514811781}
   - component: {fileID: 4252219091202396646}
   - component: {fileID: 8419251960379231533}
+  - component: {fileID: -80918417265773921}
+  - component: {fileID: 1381879539353248556}
   m_Layer: 0
   m_Name: SM_Rock_Boulder_01
   m_TagString: Obstacle
@@ -136,3 +138,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &-80918417265773921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666741820064022616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f6c320e9c5b284c833b1013950bfe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1381879539353248556
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666741820064022616}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6651044, y: 2.6651044, z: 2.6651044}
+  m_Center: {x: 0, y: -0.000000059604645, z: 0}
