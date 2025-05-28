@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BusController : MonoBehaviour
 {
-      public float laneOffset = 3.5f;     // Distancia entre carriles
+      public float laneOffset = 4.5f;     // Distancia entre carriles
     public float moveSpeed = 10f;       // Velocidad de desplazamiento lateral
 
     private int currentLane = 1;        // 0 a 3 (cuatro carriles)
@@ -40,7 +40,7 @@ public class BusController : MonoBehaviour
 
     void UpdateTargetPosition()
     {
-        float xPos = (currentLane - 1.5f) * laneOffset; // Carriles centrados: -1.5, -0.5, 0.5, 1.5
+        float xPos = (currentLane - 1.5f) * laneOffset*1.5f; // Carriles centrados: -1.5, -0.5, 0.5, 1.5
         targetLocalPosition = new Vector3(xPos, transform.localPosition.y, transform.localPosition.z);
     }
 }
