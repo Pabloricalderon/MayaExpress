@@ -40,7 +40,7 @@ public class ObstacleSpawner : MonoBehaviour
             GameObject prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
             GameObject obstacle = Instantiate(prefab, new Vector3(x, 0, spawnZ), Quaternion.identity);
 
-            Destroy(obstacle, 15f); // Se destruye después de 15 segundos
+            Destroy(obstacle, 5f); // Se destruye después de 15 segundos
         }
     }
 }
