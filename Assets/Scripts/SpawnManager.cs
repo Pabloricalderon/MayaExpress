@@ -4,44 +4,43 @@ using System.Collections.Generic;
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject[] obstaclePrefabs;
-    public float spawnDistanceAhead = 50f;
-    public float laneOffset = 4.5f;
+    public float spawnDistanceAhead = 50f;     // Distancia delante del jugador donde aparecen
+    public float laneOffset = 4.5f;            // Separación entre carriles
     public Transform player;
-    public float spawnInterval = 70f;  // Menos frecuente
-    private float lastSpawnZ;
+    public float spawnStep = 25f;              // Cada cuántos metros generar obstáculos
+    private float nextSpawnZ = 0f;             // Próxima posición Z para generar
 
-    void Start()
+    private void Start()
     {
-        lastSpawnZ = player.position.z;
+        nextSpawnZ = player.position.z + spawnStep;
     }
 
-    void Update()
+    private void Update()
     {
-        if (player.position.z - lastSpawnZ >= spawnInterval)
+        if (player.position.z + spawnDistanceAhead >= nextSpawnZ)
         {
-            SpawnObstacles();
-            lastSpawnZ = player.position.z;
+            SpawnObstacles(nextSpawnZ);
+            nextSpawnZ += spawnStep;
         }
     }
 
-    void SpawnObstacles()
+    private void SpawnObstacles(float spawnZ)
     {
-        int numberOfObstacles = Random.Range(1, 3);  // Máximo 2 por tanda
+        int numberOfObstacles = Random.Range(1, 3); // Máximo 2
         List<int> availableLanes = new List<int> { 0, 1, 2, 3 };
 
         for (int i = 0; i < numberOfObstacles && availableLanes.Count > 0; i++)
         {
             int laneIndex = Random.Range(0, availableLanes.Count);
             int lane = availableLanes[laneIndex];
-            availableLanes.RemoveAt(laneIndex);  // No repetir carril
+            availableLanes.RemoveAt(laneIndex);
 
             float x = (lane - 1.5f) * laneOffset * 1.5f;
-            float z = player.position.z + spawnDistanceAhead;
 
             GameObject prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
-            Instantiate(prefab, new Vector3(x, 0, z), Quaternion.identity);
+            GameObject obstacle = Instantiate(prefab, new Vector3(x, 0, spawnZ), Quaternion.identity);
+
+            Destroy(obstacle, 15f); // Se destruye después de 15 segundos
         }
     }
 }
-
-
